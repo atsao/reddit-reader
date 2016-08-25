@@ -1,0 +1,29 @@
+{
+  "name": "reddit-reader",
+  "version": "1.0.0",
+  "description": "A streamlined Reddit feed reader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atsao/reddit-reader.git"
+  },
+  "author": "Andrew Tsao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atsao/reddit-reader/issues"
+  },
+  "homepage": "https://github.com/atsao/reddit-reader#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "raw.js": "^0.6.0",
+    "request": "^2.74.0"
+  }
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="redditReader">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reddit Reader</title>
+  <base href="/">  
+
+  <!-- <link rel="stylesheet" href="/styles/styles.css"> -->
+  <style type="text/css">
+  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide { 
+    display: none !important;
+  }
+  </style>
+</head>
+
+<body ng-controller="MainController" ng-cloak>
+  <div class="wrapper">
+    <form ng-submit="addSubreddit(subreddit)" novalidate>
+      <input type="text" ng-model="subreddit" placeholder="Add a subreddit" />
+      <button type="submit">Add</button>
+    </form>
+    <ul ng-hide="!subredditList.length">
+      <li ng-repeat="sub in subredditList track by $index">{{ sub }} - <button ng-click="editSubreddit($index)">Edit</button> <button ng-click="deleteSubreddit($index)">Delete</button></li>
+    </ul>
+    <button ng-click="generateFeed()">Generate Feed</button>
+    <div ng-show="loading">Loading...</div>
+    <div ng-repeat="post in posts | orderBy:'data.score':true">
+      <div reddit post="post.data"></div>
+    </div>
+  </div>
+
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/controllers/MainController.js"></script>
+  <script src="/directives/post.js"></script>
+  <script src="/services/MainService.js"></script>
+  <script src="index.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "reddit-reader",
+  "description": "A streamlined Reddit feed reader",
+  "main": "index.js",
+  "authors": [
+    "Andrew Tsao"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/atsao/reddit-reader",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1"
+  }
+}
