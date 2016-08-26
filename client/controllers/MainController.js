@@ -1,21 +1,17 @@
 angular.module('MainController', []).controller('MainController', function($scope, MainService) {
   $scope.subredditList = [];
-  $scope.subredditHistory = {};
   $scope.posts = [];
   $scope.after = null;
   $scope.loading = false;
+  $scope.fp = true;
 
   $scope.addSubreddit = function(subreddit) {
-    // if ($scope.subredditHistory['front-page']) {
-    //   delete $scope.subredditHistory['front-page'];
-    // }
-
     if ($scope.subredditList.indexOf(subreddit) !== -1) {
       $scope.subreddit = '';
       return;
     }
     $scope.subredditList.push(subreddit);
-    // $scope.subredditHistory[subreddit] = '';
+    $scope.fp = false;
     $scope.subreddit = '';
   };
 
@@ -29,9 +25,7 @@ angular.module('MainController', []).controller('MainController', function($scop
     var subredditName = $scope.subredditList[index];
 
     $scope.subredditList.splice(index, 1);
-    delete $scope.subredditHistory[subredditName];
 
-    // Call cleanPosts
     $scope.cleanPosts(subredditName);
   };
 
@@ -54,15 +48,15 @@ angular.module('MainController', []).controller('MainController', function($scop
     var after = $scope.after;
 
     if ($scope.subredditList.length === 0) {
-      // var after = $scope.subredditHistory['front-page'] || null;
-      // $scope.fetchData('front-page', after);
       query = 'front-page';
-      after = null;
+      // after = null;
+      // $scope.posts = [];
+      $scope.fp = true;
+    } else {
+      $scope.fp = false;
     }
 
     $scope.subredditList.forEach(function(subreddit) {
-      // var after = $scope.subredditHistory[subreddit] || null;
-      // $scope.fetchData(subreddit, after);
       query += subreddit + '+';
     });
 
@@ -74,6 +68,9 @@ angular.module('MainController', []).controller('MainController', function($scop
   $scope.fetchData = function(subreddit, after) {
     $scope.loading = true;
     $scope.posts = after ? $scope.posts : [];
+    // if ($scope.subredditList.length > 0) {
+
+    // }
 
     MainService.getData(subreddit, after).then(function(response) {
       var posts = JSON.parse(response.data.body);
@@ -82,7 +79,8 @@ angular.module('MainController', []).controller('MainController', function($scop
         // var newAfter = ;
         // console.log('newAfter: ', newAfter);
         // $scope.subredditHistory[subreddit] = newAfter;
-        $scope.after = $scope.subredditList.length !== 0 ? posts.data.children[length - 1].data.name : null;
+        // $scope.after = $scope.subredditList.length !== 0 ? posts.data.children[length - 1].data.name : null;
+        $scope.after = posts.data.children[length - 1].data.name;
         $scope.posts = $scope.posts.concat(posts.data.children);
       }
       $scope.loading = false;
@@ -92,6 +90,13 @@ angular.module('MainController', []).controller('MainController', function($scop
     });
   }
 
+  $scope.$watch('fp', function(newValue, oldValue) {
+    if (oldValue === true && newValue === false) {
+      $scope.posts = [];
+      $scope.after = null;
+    }
+  });
+
   $scope.$watchCollection('subredditList', function(newValue, oldValue) {
     if (newValue.length == 0) {
       $scope.posts = [];
@@ -100,6 +105,7 @@ angular.module('MainController', []).controller('MainController', function($scop
       $scope.generateFeed();
     }
   });
+
 
 
 });

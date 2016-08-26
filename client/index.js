@@ -1,5 +1,6 @@
 angular.module('redditReader', [
-  'ui.router',
+  'angularMoment',
+  'ngAnimate',
   'MainController',
   'MainDirectives',
   'MainService'

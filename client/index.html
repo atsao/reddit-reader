@@ -6,34 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reddit Reader</title>
   <base href="/">  
-
-  <!-- <link rel="stylesheet" href="/styles/styles.css"> -->
-  <style type="text/css">
-  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide { 
-    display: none !important;
-  }
-  </style>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 
 <body ng-controller="MainController" ng-cloak>
   <div class="wrapper">
-    <form ng-submit="addSubreddit(subreddit)" novalidate>
-      <input type="text" ng-model="subreddit" placeholder="Add a subreddit" />
-      <button type="submit">Add</button>
-    </form>
-    <ul ng-hide="!subredditList.length">
-      <li ng-repeat="sub in subredditList track by $index">{{ sub }} - <button ng-click="editSubreddit($index)">Edit</button> <button ng-click="deleteSubreddit($index)">Delete</button></li>
-    </ul>
-    <button ng-click="generateFeed()">Generate Feed</button>
-    <div ng-show="loading">Loading...</div>
-    <div ng-repeat="post in posts | orderBy:'data.score':true">
-      <div reddit post="post.data"></div>
+    <header>
+      <div class="container">
+        <h1>Reddit Reader</h1>
+        <div class="subreddit-list-container">
+          <form ng-submit="addSubreddit(subreddit)" class="subreddit-form" novalidate>
+            <input type="text" ng-model="subreddit" placeholder="Add a subreddit" class="input-subreddit" />
+            <button type="submit" class="add-subreddit btn btn-inline btn-primary-solid">Add</button>
+          </form>
+          <ul ng-hide="!subredditList.length" class="subreddit-list">
+            <li ng-repeat="sub in subredditList track by $index" class="subreddit"><span class="subreddit-name">{{ sub }}</span><button ng-click="editSubreddit($index)" class="mini-btn edit">Edit</button><button ng-click="deleteSubreddit($index)" class="mini-btn delete">x</button></li>
+          </ul>
+        </div>
+        <button ng-click="generateFeed()" class="btn btn-primary btn-block">Generate Feed</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="container">
+        <div class="post-container fade" ng-show="posts.length">
+          <div ng-repeat="post in posts | orderBy:'data.score':true">
+            <div reddit post="post.data" class="post"></div>
+          </div>
+        </div>
+        <button ng-show="posts.length" ng-click="generateFeed()" class="btn btn-primary btn-block">Load More</button>
+      </div>
     </div>
-    <button ng-show="posts.length > 0" ng-click="generateFeed()">Load More</button>
+  </div>
+  <div ng-show="loading" class="loading fade">
+    <img src="/assets/img/spinner.gif" />
   </div>
 
   <script src="/bower_components/angular/angular.js"></script>
-  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/moment/moment.js"></script>
+  <script src="/bower_components/angular-moment/angular-moment.js"></script>
   <script src="/controllers/MainController.js"></script>
   <script src="/directives/post.js"></script>
   <script src="/services/MainService.js"></script>

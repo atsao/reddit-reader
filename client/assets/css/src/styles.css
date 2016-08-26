@@ -1,0 +1,285 @@
+@import '_reset';
+@import '_variables';
+@import '_typography';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $body-bg;
+  color: $base-font-color;
+  font-family: $base-font-stack;
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+}
+
+/* RESET STYLES */
+a, a:link, a:hover, a:visited, a:active {
+  display: inline-block;
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: $primary-color;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.wrapper {
+  display: block;
+  height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: 0 20px;
+  position: relative;
+
+  @neat-outer-container;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak { 
+  display: none !important;
+}
+
+.fade.ng-hide {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.fade.ng-hide-remove,
+.fade.ng-hide-add {
+  display: block !important;
+}
+
+.fade.ng-hide-remove {
+  transition: all 0.3s ease-out;
+}
+
+.fade.ng-hide-add {
+  transition: all 0.3s ease-out;
+}
+
+.loading {
+  background: #fff;
+  border-radius: 10px;
+  display: block;
+  height: 100%;
+  /*padding: 50%;*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.95;
+  width: 100%;
+  z-index: 100;
+}
+
+.loading img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.subreddit-list-container {
+  background: #fbfbfb;
+  border: solid 1px $light-gray;
+  border-radius: 3px;
+  clear: fix;
+  margin: 1em 0;
+  padding: 10px;
+}
+
+.subreddit-list-container p {
+  font-size: 0.875em;
+  margin-bottom: 0;
+}
+
+.subreddit-form {
+  border-bottom: solid 1px #eee;
+  clear: fix;
+  margin-bottom: 1em;
+  padding-bottom: 10px;
+}
+
+.subreddit-list {
+  list-style-type: none;
+}
+
+.subreddit {
+  background: $blue;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.875em;
+  margin-right: 0.5em;
+  padding: 10px;
+}
+
+.subreddit-name {
+  margin-right: 10px;
+}
+
+.post {
+  background: #fff;
+  border: solid 1px #CEE3F8;
+  border-radius: 3px;
+  clear: fix;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.post p {
+  margin: 0;
+}
+
+.post-container {
+  display: block;
+}
+
+.post-score {
+  color: $gray;
+  text-align: left;
+  @neat-fill-parent();
+}
+
+@media (--small) {
+  .post-score {
+    text-align: center;
+    @neat-span-columns 1;
+  }
+}
+
+.post-image {
+  display: none;
+}
+
+@media (--small) {
+  .post-image {
+    @neat-span-columns 2;
+  }
+}
+
+.post-image img {
+  height: auto;
+  width: 100%;
+}
+
+.post-content {
+  @neat-fill-parent();
+}
+
+@media (--small) {
+  .post-content {
+    @neat-span-columns 9;
+    @neat-omega;
+  }
+}
+
+
+.post-title {
+  margin-bottom: 0.5em;
+}
+
+.post-tagline {
+  color: $dark-gray;
+  font-size: 0.75em;
+}
+
+.post-footer {
+  font-size: 0.75em;
+
+  @neat-fill-parent();
+}
+
+.mini-btn {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.btn {
+  background: transparent;
+  border: solid 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px 20px;
+}
+
+.btn-block {
+  margin: 1em auto;
+  @neat-fill-parent();
+}
+
+.btn-inline {
+  display: inline-block;
+  height: 100%;
+}
+
+.btn-primary {
+  border-color: $blue;
+  color: $blue;
+  transition: all 0.3s ease-out;
+}
+
+.btn-primary:hover {
+  background: $blue;
+  color: #fff;
+}
+
+.btn-primary-solid {
+  background-color: $blue;
+  border: 0;
+  color: #fff;
+  transition: all 0.3s ease-out;
+}
+
+.btn-primary-solid:hover {
+  background: color($blue l(-10%));
+  color: #fff;
+}
+
+
+@media (--small) {
+  .btn-block {
+    @neat-span-columns 6;
+    @neat-shift 3;
+  }
+
+  .btn-inline {
+    padding: 5px;
+  }
+}
+
+input[type=text] {
+  background: transparent;
+  border: transparent;
+  font: inherit;
+  height: 100%;
+  line-height: 1.2;
+  outline: none;
+  padding: 10px;
+}
+
+.input-subreddit {
+  @neat-span-columns 10;
+}
+
+.add-subreddit {
+  @neat-span-columns 2;
+}

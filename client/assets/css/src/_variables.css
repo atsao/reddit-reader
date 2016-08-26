@@ -1,0 +1,92 @@
+
+/* COLORS */
+$blue: #86BBD8;
+$blue-darker: #33658A;
+$red: #dc143c;
+$pink: #FF6969;
+$green: #2ecc71;
+$orange: #f26419;
+$yellow: #DBAC37;
+$slate: #2f4858;
+$slate-brown: #5B4C41;
+$beige: #AF9A78;
+$darker-gray: color(#000 w(+20%) s(0));
+$dark-gray: color(#000 w(+40%) s(0));
+$gray: #999;
+$light-gray: color(#fff w(-40%) s(0));
+$lighter-gray: color(#fff w(-20%) s(0));
+$lightest-gray: color(#fff w(-9%) s(0));
+
+/* FONT WEIGHTS */
+$light-weight: 300;
+$normal-weight: 400;
+$semibold-weight: 500;
+$bold-weight: 700;
+
+/* FONT STACKS */
+$helvetica-font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$oswald-font-stack: "Oswald", sans-serif;
+$roboto-font-stack: "Roboto", sans-serif;
+$francois-one-font-stack:"Francois One", sans-serif;
+$merriweather-font-stack: "Merriweather", Georgia, "Times New Roman", serif;
+$consolas-font-stack: "Consolas", "Courier New", mono;
+$lato-font-stack: "Lato", sans-serif;
+$avenir-font-stack: "Avenir", "Helvetica", sans-serif;
+$bebas-font-stack: "Bebas Neue", sans-serif;
+$verdana-font-stack: Verdana, Arial, sans-serif;
+$sans-serif: $helvetica-font-stack;
+$serif: $merriweather-font-stack;
+$mono: $consolas-font-stack;
+
+
+/* BASE STYLES */
+$base-font-color: $dark-gray;
+$base-font-size: 16px;
+$base-font-stack: $verdana-font-stack;
+$base-font-weight: $normal-weight;
+$base-line-height: 1.5;
+
+$primary-color: $blue;
+
+/* TYPOGRAPHY */
+$header-color: $darker-gray;
+$header-font-family: $bebas-font-stack;
+$header-font-style: normal;
+$header-font-weight: $semibold-weight;
+$header-line-height: 1.4;
+$header-margin-bottom: 0.5em;
+
+$paragraph-color: inherit;
+$paragraph-line-height: 1.6;
+$paragraph-margin-bottom: 1em;
+$paragraph-font-weight: $normal-weight;
+$paragraph-max-width: 100%;
+
+$small-font-size: 0.875;
+
+/* THEME */
+$max-width: 64em;
+$body-bg: #F7F7F7;
+
+$nav-bg: rgba(255, 255, 255, 0.90);
+
+$footer-bg: rgba(0, 0, 0, 0.3);
+$footer-color: #fff;
+
+/* MEDIA QUERIES */
+$xxsmall: 20em;
+$xsmall: 30em;
+$small: 35.5em;
+$medium: 48em;
+$large: 64em;
+$xlarge: 80em;
+
+@custom-media --xsmall (width >= $xsmall);
+@custom-media --xsmall-small (width >= $xsmall) and (width < $small);
+@custom-media --small (width >= $small);
+@custom-media --small-medium (width >= $small) and (width < $medium);
+@custom-media --medium (width >= $medium);
+@custom-media --medium-large (width >= $medium) and (width < $large);
+@custom-media --large (width >= $large);
+@custom-media --large-xlarge (width >= $large) and (width < $xlarge);
+@custom-media --xlarge (width >= $xlarge);
