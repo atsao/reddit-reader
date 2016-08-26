@@ -13,14 +13,14 @@
   <div class="wrapper">
     <header>
       <div class="container">
-        <h1>Reddit Reader</h1>
+        <h1 class="app-title">Reddit Reader</h1>
         <div class="subreddit-list-container">
           <form ng-submit="addSubreddit(subreddit)" class="subreddit-form" novalidate>
             <input type="text" ng-model="subreddit" placeholder="Add a subreddit" class="input-subreddit" />
             <button type="submit" class="add-subreddit btn btn-inline btn-primary-solid">Add</button>
           </form>
           <ul ng-hide="!subredditList.length" class="subreddit-list">
-            <li ng-repeat="sub in subredditList track by $index" class="subreddit"><span class="subreddit-name">{{ sub }}</span><button ng-click="editSubreddit($index)" class="mini-btn edit">Edit</button><button ng-click="deleteSubreddit($index)" class="mini-btn delete">x</button></li>
+            <li ng-repeat="sub in subredditList track by $index" class="subreddit"><span class="subreddit-name">{{ sub }}</span><button ng-click="editSubreddit($index)" class="mini-btn edit" title="Edit this subreddit">&#x270E;</button><button ng-click="deleteSubreddit($index)" class="mini-btn delete" title="Delete subreddit">&#10006;</button></li>
           </ul>
         </div>
         <button ng-click="generateFeed()" class="btn btn-primary btn-block">Generate Feed</button>

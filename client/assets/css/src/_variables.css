@@ -26,6 +26,7 @@ $bold-weight: 700;
 /* FONT STACKS */
 $helvetica-font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $oswald-font-stack: "Oswald", sans-serif;
+$opensans-condensed-font-stack: "Open Sans Condensed", sans-serif;
 $roboto-font-stack: "Roboto", sans-serif;
 $francois-one-font-stack:"Francois One", sans-serif;
 $merriweather-font-stack: "Merriweather", Georgia, "Times New Roman", serif;
@@ -50,7 +51,7 @@ $primary-color: $blue;
 
 /* TYPOGRAPHY */
 $header-color: $darker-gray;
-$header-font-family: $bebas-font-stack;
+$header-font-family: $opensans-condensed-font-stack;
 $header-font-style: normal;
 $header-font-weight: $semibold-weight;
 $header-line-height: 1.4;

@@ -27,7 +27,7 @@ module.exports = function(app) {
       options.uri += '?after=' + query.after;
     }
 
-    console.log('URI: ', options.uri);
+    // console.log('URI: ', options.uri);
 
     return request.get(options, function(err, response) {
       if (err) throw new Error(err);

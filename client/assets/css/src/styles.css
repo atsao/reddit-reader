@@ -2,6 +2,8 @@
 @import '_variables';
 @import '_typography';
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -71,6 +73,11 @@ a:hover {
   transition: all 0.3s ease-out;
 }
 
+.app-title {
+  font-weight: $bold-weight;
+  text-transform: uppercase;
+}
+
 .loading {
   background: #fff;
   border-radius: 10px;
@@ -99,7 +106,7 @@ a:hover {
   border: solid 1px $light-gray;
   border-radius: 3px;
   clear: fix;
-  margin: 1em 0;
+  margin: 1em 0 0;
   padding: 10px;
 }
 
@@ -208,8 +215,15 @@ a:hover {
 .mini-btn {
   background: transparent;
   border: 0;
+  color: color($blue l(-20%));
   cursor: pointer;
-  padding: 5px;
+  font: inherit;
+  padding: 5px 10px;
+  transition: all 0.3s ease-out;
+}
+
+.mini-btn:hover {
+  color: color($blue l(+20%));
 }
 
 .btn {
@@ -273,14 +287,18 @@ input[type=text] {
   padding: 10px;
 }
 
+button {
+  outline: none;
+}
+
 .input-subreddit {
   @neat-span-columns 9;
-  @neat-omega;
 }
 
 
 .add-subreddit {
   @neat-span-columns 3;
+  @neat-omega;
 }
 
 @media (--small) {
@@ -291,5 +309,6 @@ input[type=text] {
 
   .add-subreddit {
     @neat-span-columns 2;
+    @neat-omega;
   }
 }
