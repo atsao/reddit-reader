@@ -229,6 +229,7 @@ a:hover {
 .btn-inline {
   display: inline-block;
   height: 100%;
+  padding: 5px;
 }
 
 .btn-primary {
@@ -260,10 +261,6 @@ a:hover {
     @neat-span-columns 6;
     @neat-shift 3;
   }
-
-  .btn-inline {
-    padding: 5px;
-  }
 }
 
 input[type=text] {
@@ -277,9 +274,22 @@ input[type=text] {
 }
 
 .input-subreddit {
-  @neat-span-columns 10;
+  @neat-span-columns 9;
+  @neat-omega;
 }
 
+
 .add-subreddit {
-  @neat-span-columns 2;
+  @neat-span-columns 3;
+}
+
+@media (--small) {
+  .input-subreddit {
+    @neat-span-columns 10;
+    @neat-omega;
+  }
+
+  .add-subreddit {
+    @neat-span-columns 2;
+  }
 }
