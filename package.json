@@ -2,7 +2,7 @@
   "name": "reddit-reader",
   "version": "1.0.0",
   "description": "A streamlined Reddit feed reader",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js"

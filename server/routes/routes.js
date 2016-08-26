@@ -7,19 +7,31 @@ reddit.setupOAuth2(config.reddit.client_id, config.reddit.client_secret, "http:/
 
 module.exports = function(app) {
   app.route('/').post(function(req, res) {
-    var subreddit, options;
-    if (req.body.subreddit === 'front-page') {
-      subreddit = '';
+    var uri = 'https://json.reddit.com';
+    var options = {
+      uri: uri
+    };
+
+    var query = {
+      subreddit: req.body.subreddit,
+      after: req.body.after || null
+    };
+
+    if (query.subreddit !== 'front-page') {
+      options.uri += '/r/' + query.subreddit + '/hot';
     } else {
-      subreddit = '/r/' + req.body.subreddit;
+      options.uri += '/hot';
+    }
+    
+    if (query.after) {
+      options.uri += '?after=' + query.after;
     }
 
-    options = {
-      url: 'https://json.reddit.com' + subreddit
-    };
+    console.log('URI: ', options.uri);
+
     return request.get(options, function(err, response) {
       if (err) throw new Error(err);
-      res.send(response);
+      res.json(response);
     });
   });
 }

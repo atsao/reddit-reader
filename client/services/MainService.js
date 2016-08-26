@@ -1,20 +1,19 @@
 angular.module('MainService', []).service('MainService', function($http) {
-  var factory = {};
+  var reddit = {};
 
-  factory.getData = function(subreddit) {
-    var query = {
-      subreddit: subreddit
-    }
-
+  reddit.getData = function(subreddit, after) {
     return $http({
       method: 'POST',
       url: '/api/reddit',
-      data: query,
+      data: {
+        subreddit: subreddit,
+        after: after
+      },
       contentType: 'application/json'
     }).then(function(data) {
       return data;
     });
   };
 
-  return factory;
+  return reddit;
 });
