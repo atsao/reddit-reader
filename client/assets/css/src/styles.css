@@ -132,7 +132,7 @@ a:hover {
   color: #fff;
   display: inline-block;
   font-size: 0.875em;
-  margin-right: 0.5em;
+  margin: 0 0.5em 0.5em 0;
   padding: 10px;
 }
 
