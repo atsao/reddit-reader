@@ -2,7 +2,7 @@
 <html ng-app="redditReader">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reddit Reader</title>
   <base href="/">  
@@ -20,7 +20,7 @@
             <button type="submit" class="add-subreddit btn btn-inline btn-primary-solid">Add</button>
           </form>
           <ul ng-hide="!subredditList.length" class="subreddit-list">
-            <li ng-repeat="sub in subredditList track by $index" class="subreddit"><span class="subreddit-name">{{ sub }}</span><button ng-click="editSubreddit($index)" class="mini-btn edit" title="Edit this subreddit">&#x270E;</button><button ng-click="deleteSubreddit($index)" class="mini-btn delete" title="Delete subreddit">&#10006;</button></li>
+            <li ng-repeat="sub in subredditList track by $index" class="subreddit"><span class="subreddit-name">{{ sub }}</span><button ng-click="editSubreddit($index)" class="mini-btn" title="Edit this subreddit"><span class="mini-btn-name">&#x270E;</span></button><button ng-click="deleteSubreddit($index)" class="mini-btn" title="Delete subreddit"><span class="mini-btn-name">&#10005;</span></button></li>
           </ul>
         </div>
         <button ng-click="generateFeed()" class="btn btn-primary btn-block">Generate Feed</button>

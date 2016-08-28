@@ -7,7 +7,9 @@
   <div class="post-title">
     <a ng-href="https://www.reddit.com{{ post.permalink }}" target="_blank">{{ post.title }}</a>
   </div>
-  <p class="post-tagline">submitted <span am-time-ago="{{ post.created_utc * 1000 }}"></span> by <a ng-href="https://www.reddit.com/u/{{ post.author }}" target="_blank">{{ post.author }}</a> to <a ng-href="https://www.reddit.com/r/{{ post.subreddit }}" target="_blank">/r/{{ post.subreddit }}</a></p>
+  <div class="post-tagline">
+    <p>submitted <span am-time-ago="{{ post.created_utc * 1000 }}"></span> by <a ng-href="https://www.reddit.com/u/{{ post.author }}" target="_blank">{{ post.author }}</a> to <a ng-href="https://www.reddit.com/r/{{ post.subreddit }}" target="_blank">/r/{{ post.subreddit }}</a></p>
+  </div>
   <div class="post-footer">
     <p><a ng-href="https://www.reddit.com/{{ post.permalink }}" target="_blank">{{ post.num_comments }} comments</a></p>
   </div>
